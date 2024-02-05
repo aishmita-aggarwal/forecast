@@ -22,57 +22,38 @@ Method |  URL                        | Params
 ```
   Status code: 200
 Response body: {
-  coord: {
-    lon: Longitude of the location
-    lat: Latitude of the location
-  },
-  weather: {
-    id: Weather condition id,
-    main: Group of weather parameters (Rain, Snow, Clouds etc.),
-    description: Weather condition within the group,
-    icon: Weather icon id
-  },
-  base: internal parameter of OpenWeatherMap,
-  main: {
-    temp: Temperature. Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit,
-    feels_like: Temperature. This temperature parameter accounts for the human perception of weather. Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit,
-    pressure: Atmospheric pressure on the sea level, hPa,
-    humidity: Humidity, %,
-    temp_min: Minimum temperature at the moment. This is minimal currently observed temperature (within large megalopolises and urban areas). Please find more info here. Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit,
-    temp_max: Maximum temperature at the moment. This is maximal currently observed temperature (within large megalopolises and urban areas). Please find more info here. Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit,
-    sea_level:  Atmospheric pressure on the sea level, hPa,
-    grnd_level: Atmospheric pressure on the ground level, hPa
-  },
-  visibility: Visibility, meter. The maximum value of the visibility is 10 km,
-  wind: {
-    speed: Wind speed. Unit Default: meter/sec, Metric: meter/sec, Imperial: miles/hour,
-    deg: Wind direction, degrees (meteorological),
-    gust: Wind gust. Unit Default: meter/sec, Metric: meter/sec, Imperial: miles/hour
-  },
-  clouds: {
-    all: Cloudiness, %
-  },
-  rain: {
-    1h: (where available) Rain volume for the last 1 hour, mm. Please note that only mm as units of measurement are available for this parameter,
-    3h: (where available) Rain volume for the last 3 hours, mm. Please note that only mm as units of measurement are available for this parameter
-  },
-  snow: {
-    1h: (where available) Snow volume for the last 1 hour, mm. Please note that only mm as units of measurement are available for this parameter,
-    3h: (where available)Snow volume for the last 3 hours, mm. Please note that only mm as units of measurement are available for this parameter
-  },
-  dt: Time of data calculation, unix, UTC,
-  sys: {
-    type: internal parameter of OpenWeatherMap,
-    id: internal parameter of OpenWeatherMap,
-    message: internal parameter of OpenWeatherMap,
-    country: Country code (GB, JP etc.),
+  data: {
+    coordinates: {
+      lon: Longitude of the location
+      lat: Latitude of the location
+    },
+    temperature: {
+      temp: Temperature. Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit,
+      feels_like: Temperature. This temperature parameter accounts for the human perception of weather. Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit,
+      pressure: Atmospheric pressure on the sea level, hPa,
+      humidity: Humidity, %,
+      temp_min: Minimum temperature at the moment. This is minimal currently observed temperature (within large megalopolises and urban areas). Please find more info here. Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit,
+      temp_max: Maximum temperature at the moment. This is maximal currently observed temperature (within large megalopolises and urban areas). Please find more info here. Unit Default: Kelvin, Metric: Celsius, Imperial: Fahrenheit,
+      sea_level:  Atmospheric pressure on the sea level, hPa,
+      grnd_level: Atmospheric pressure on the ground level, hPa
+    },
+    visibility: Visibility, meter. The maximum value of the visibility is 10 km,
+    wind: {
+      speed: Wind speed. Unit Default: meter/sec, Metric: meter/sec, Imperial: miles/hour,
+      deg: Wind direction, degrees (meteorological),
+      gust: Wind gust. Unit Default: meter/sec, Metric: meter/sec, Imperial: miles/hour
+    },
+    rain: {
+      1h: (where available) Rain volume for the last 1 hour, mm. Please note that only mm as units of measurement are available for this parameter,
+      3h: (where available) Rain volume for the last 3 hours, mm. Please note that only mm as units of measurement are available for this parameter
+    },
+    snow: {
+      1h: (where available) Snow volume for the last 1 hour, mm. Please note that only mm as units of measurement are available for this parameter,
+      3h: (where available)Snow volume for the last 3 hours, mm. Please note that only mm as units of measurement are available for this parameter
+    },
     sunrise: Sunrise time, unix, UTC,
     sunset: Sunset time, unix, UTC
-  },
-  timezone: Shift in seconds from UTC,
-  id: City ID,
-  name: City name,
-  cod: internal parameter of OpenWeatherMap
+  }
 }
 ```
 **Example:**
@@ -81,47 +62,29 @@ Response body: {
 ```
 ```
 {
-    "coord": {
-        "lon": 77.2167,
-        "lat": 28.6667
-    },
-    "weather": [
-        {
-            "id": 721,
-            "main": "Haze",
-            "description": "haze",
-            "icon": "50d"
-        }
-    ],
-    "base": "stations",
-    "main": {
-        "temp": 68.11,
-        "feels_like": 67.06,
-        "temp_min": 68.09,
-        "temp_max": 68.11,
-        "pressure": 1018,
-        "humidity": 52
-    },
-    "visibility": 1800,
-    "wind": {
-        "speed": 5.75,
-        "deg": 200
-    },
-    "clouds": {
-        "all": 0
-    },
-    "dt": 1706516458,
-    "sys": {
-        "type": 2,
-        "id": 145989,
-        "country": "IN",
-        "sunrise": 1706492473,
-        "sunset": 1706531206
-    },
-    "timezone": 19800,
-    "id": 1273294,
-    "name": "Delhi",
-    "cod": 200
+    "data": {
+        "coordinates": {
+            "lon": 77.2167,
+            "lat": 28.6667
+        },
+        "temperature": {
+            "temp": 68.09,
+            "feels_like": 67.05,
+            "temp_min": 68.09,
+            "temp_max": 68.09,
+            "pressure": 1017,
+            "humidity": 52
+        },
+        "visibility": 3500,
+        "wind": {
+            "speed": 8.05,
+            "deg": 300
+        },
+        "rain": null,
+        "snow": null,
+        "sunrise": 1707097051,
+        "sunset": 1707136355
+    }
 }
 ```
 **2. Not Found**

@@ -21,7 +21,18 @@ module OpenWeatherService
         send_request('get', params)
       end
 
-      JSON.parse(@response.body)
+      @data = JSON.parse(@response.body)
+
+      {
+        coordinates: @data['coord'],
+        temperature: @data['main'],
+        visibility: @data['visibility'],
+        wind: @data['wind'],
+        rain: @data['rain'],
+        snow: @data['snow'],
+        sunrise: @data['sys']['sunrise'],
+        sunset: @data['sys']['sunset'],
+      }
     end
 
     private def request_url
